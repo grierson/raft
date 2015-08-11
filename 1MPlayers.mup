@@ -1,0 +1,103 @@
+{
+  "title": "1M Players",
+  "id": 1,
+  "formatVersion": 2,
+  "ideas": {
+    "1": {
+      "title": "Players",
+      "id": 2,
+      "ideas": {
+        "1": {
+          "title": "Inviting Friends",
+          "id": 3,
+          "ideas": {
+            "1": {
+              "title": "Viral Content",
+              "id": 16
+            },
+            "2": {
+              "title": "Personalisation",
+              "id": 17
+            },
+            "3": {
+              "title": "More Compelling Product",
+              "id": 18
+            },
+            "4": {
+              "title": "Incentives",
+              "id": 19,
+              "ideas": {
+                "1": {
+                  "title": "Chips",
+                  "id": 22
+                },
+                "2": {
+                  "title": "Recognition for inviting lots of friends",
+                  "id": 23
+                }
+              }
+            },
+            "5": {
+              "title": "Semi Automated Invites",
+              "id": 20
+            }
+          }
+        },
+        "2": {
+          "title": "Recommending",
+          "id": 4,
+          "ideas": {
+            "1": {
+              "title": "Bookmarking",
+              "id": 15
+            }
+          }
+        },
+        "3": {
+          "title": "Posting",
+          "id": 5,
+          "ideas": {
+            "1": {
+              "title": "Content to Post About",
+              "id": 14
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "title": "Advertisers ",
+      "id": 7,
+      "ideas": {
+        "1": {
+          "title": "Bulk Invitations",
+          "id": 9
+        },
+        "2": {
+          "title": "Publishing Our Banners",
+          "id": 10
+        }
+      }
+    },
+    "-1": {
+      "title": "Internal",
+      "id": 6,
+      "ideas": {
+        "1": {
+          "title": "Organise PR Event",
+          "id": 11,
+          "ideas": {
+            "1": {
+              "title": "Invites",
+              "id": 13
+            }
+          }
+        },
+        "2": {
+          "title": "Engaging our network",
+          "id": 12
+        }
+      }
+    }
+  }
+}

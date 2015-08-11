@@ -1,15 +1,15 @@
 # Website
-- [] Basic Website
+- [ ] Basic Website
 
 # Feature list
-- [] Add to List
-- [] Voting
+- [ ] Add to List
+- [ ] Voting
 
 # Reporting
-- [] Coverage Report
-- [] Feature Report
+- [ ] Coverage Report
+- [ ] Feature Report
 
 # Shared Knowledge
-- [] Impact Mapping
-- [] User Story Mapping
-- [] Kanban
+- [ ] Impact Mapping
+- [ ] User Story Mapping
+- [ ] Kanban

@@ -25,52 +25,36 @@ def read(impact_map=None):
                     Invites
                     Engaging out network
     '''
-    tree = []
+    def node(ideas=None, indent=0):
+        'Print Tree'
+        for key in ideas.keys():
+            if indent == 0:
+                style = colored('\nActor / Who?: ', 'cyan')
+            elif indent == 1:
+                style = colored('Impact / What?: ', 'green')
+            elif indent == 2:
+                style = colored('Deliverable / How?: ', 'blue')
+            elif indent == 3:
+                style = colored('Feature: ', 'magenta')
+            elif indent == 4:
+                style = colored('User Story: ', 'yellow')
+            elif indent == 5:
+                style = colored('Example: ', 'white')
 
-    class Node:
-        'Node in Tree'
-        def __init__(self, title=None, ideas=None, indent=0):
-            self.title = title
-
-            for key in ideas.keys():
-                if indent == 0:
-                    style = colored('Actor / Who?: ', 'cyan')
-                elif indent == 1:
-                    style = colored('Impact / What?: ', 'green')
-                elif indent == 2:
-                    style = colored('Deliverable / How?: ', 'blue')
-                elif indent == 3:
-                    style = colored('Feature: ', 'magenta')
-                elif indent == 4:
-                    style = colored('User Story: ', 'yellow')
-                elif indent == 5:
-                    style = colored('Example: ', 'white')
-
-                if 'ideas' in ideas[key]:
-                    tree.append('{}{}{}'.format('\t' * indent,
-                                                style,
-                                                Node(ideas[key]['title'],
-                                                     ideas[key]['ideas'],
-                                                     indent+1)))
-                else:
-                    tree.append('{}{}{}'.format('\t' * indent,
-                                                style,
-                                                ideas[key]['title']))
-
-        def __str__(self):
-            return self.title
-
-        def __repr__(self):
-            return self.title
+            if 'ideas' in ideas[key]:
+                print('{}{}{}'.format('\t' * indent,
+                                      style,
+                                      ideas[key]['title']))
+                node(ideas[key]['ideas'], indent+1)
+            else:
+                print('{}{}{}'.format('\t' * indent,
+                                      style,
+                                      ideas[key]['title']))
 
     with open(impact_map, 'r') as mindmap:
         root = json.load(mindmap)
-        Node(root['title'], root['ideas'], 0)
-
-        print(colored('Goal / Why?: ', 'blue') + '{}\n'.format(root['title']))
-
-        for node in reversed(tree):
-            print(node)
+        print(colored('Goal / Why?: ', 'blue') + '{}'.format(root['title']))
+        node(root['ideas'], 0)
 
 
 def main():

@@ -64,19 +64,20 @@ def print_impact_map(impact_map=None):
                                       style,
                                       ideas[key]['title']))
 
-    with open(impact_map, 'r') as mindmap:
-        root = json.load(mindmap)
-        print(colored('Goal / Why?: ', 'blue') + '{}'.format(root['title']))
-        node(root['ideas'], 0)
+    if os.path.isfile(impact_map) and impact_map.endswith('.mup'):
+        with open(impact_map, 'r') as mindmap:
+            root = json.load(mindmap)
+            print(colored('Goal ', 'blue') + '{}'.format(root['title']))
+            node(root['ideas'], 0)
+    else:
+        print('Error! Not .mup file')
 
 
 def main():
     'main'
-    args = docopt(__doc__, version='1')
-    if os.path.isfile(args['<file>']) and args['<file>'].endswith('.mup'):
+    args = docopt(__doc__, version='1.1')
+    if args['--file'] or args['-f']:
         print_impact_map(args['<file>'])
-    else:
-        print('Error: Not .mup file')
 
 
 if __name__ == '__main__':

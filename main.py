@@ -27,7 +27,7 @@ def read(impact_map=None):
     '''
     def node(ideas=None, indent=0):
         'Print Tree'
-        for key in ideas.keys():
+        for key in sorted(ideas.keys()):
             if indent == 0:
                 style = colored('\nActor / Who?: ', 'cyan')
             elif indent == 1:

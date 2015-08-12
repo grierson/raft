@@ -1,9 +1,22 @@
-'Parse mup file'
+#!/usr/bin/python3
+'''
+Parse mup file
+
+Usage:
+    print_impact_map.py (-f | --file <file>)
+    print_impact_map.py -h | --help
+
+Options:
+    -h --help   Show this screen.
+    -f --file   File to read potential
+'''
 import json
 from termcolor import colored
+import os.path
+from docopt import docopt
 
 
-def read(impact_map=None):
+def print_impact_map(impact_map=None):
     '''
     Example Layout:
     ===
@@ -59,8 +72,14 @@ def read(impact_map=None):
 
 def main():
     'main'
-    read('1MPlayers.mup')
+    args = docopt(__doc__, version='1')
+    if os.path.isfile(args['<file>']) and args['<file>'].endswith('.mup'):
+        print_impact_map(args['<file>'])
+    else:
+        print('Error: Not .mup file')
 
 
 if __name__ == '__main__':
+    main()
+else:
     main()

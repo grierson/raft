@@ -38,32 +38,6 @@ def print_impact_map(impact_map=None):
                     Invites
                     Engaging out network
     '''
-    def node(ideas=None, indent=0):
-        'Print Tree'
-        for key in sorted(ideas.keys()):
-            if indent == 0:
-                style = colored('\nActor / Who?: ', 'cyan')
-            elif indent == 1:
-                style = colored('Impact / What?: ', 'green')
-            elif indent == 2:
-                style = colored('Deliverable / How?: ', 'blue')
-            elif indent == 3:
-                style = colored('Feature: ', 'magenta')
-            elif indent == 4:
-                style = colored('User Story: ', 'yellow')
-            elif indent == 5:
-                style = colored('Example: ', 'white')
-
-            if 'ideas' in ideas[key]:
-                print('{}{}{}'.format('\t' * indent,
-                                      style,
-                                      ideas[key]['title']))
-                node(ideas[key]['ideas'], indent+1)
-            else:
-                print('{}{}{}'.format('\t' * indent,
-                                      style,
-                                      ideas[key]['title']))
-
     if os.path.isfile(impact_map) and impact_map.endswith('.mup'):
         with open(impact_map, 'r') as mindmap:
             root = json.load(mindmap)
@@ -72,6 +46,31 @@ def print_impact_map(impact_map=None):
     else:
         print('Error! Not .mup file')
 
+def node(ideas=None, indent=0):
+    'Print Tree'
+    for key in sorted(ideas.keys()):
+        if indent == 0:
+            style = colored('\nActor / Who?: ', 'cyan')
+        elif indent == 1:
+            style = colored('Impact / What?: ', 'green')
+        elif indent == 2:
+            style = colored('Deliverable / How?: ', 'blue')
+        elif indent == 3:
+            style = colored('Feature: ', 'magenta')
+        elif indent == 4:
+            style = colored('User Story: ', 'yellow')
+        elif indent == 5:
+            style = colored('Example: ', 'white')
+
+        if 'ideas' in ideas[key]:
+            print('{}{}{}'.format('\t' * indent,
+                                  style,
+                                  ideas[key]['title']))
+            node(ideas[key]['ideas'], indent+1)
+        else:
+            print('{}{}{}'.format('\t' * indent,
+                                  style,
+                                  ideas[key]['title']))
 
 def main():
     'main'
